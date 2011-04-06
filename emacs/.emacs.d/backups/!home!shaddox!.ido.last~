@@ -1,0 +1,107 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/users/" . "sessions/")
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/devise/" . "sessions/")
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/" . "users/")
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/" . "controllers/")
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/config/" . "locales/")
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/" . "db/")
+ ("/home/shaddox/repo/seeinginteractive/" . "Sphinx-config/")
+ ("/home/shaddox/repo/" . "seeinginteractive/")
+ ("/home/shaddox/.emacs.d/" . "site-lisp/")
+ ("/home/shaddox/Dropbox/linux/" . "emacs/")
+ ("/home/shaddox/Dropbox/" . "linux/")
+ ("/home/shaddox/" . "repo/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/shaddox/repo/seeinginteractive/Sphinx-config/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/db/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/app/controllers/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/config/locales/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/users/sessions/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/devise/sessions/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/users/"
+ "/home/shaddox/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/app/mailers/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/config/"
+ "/home/shaddox/Dropbox/linux/rails/"
+ "/home/shaddox/repo/seeinginteractive/DailyDeals/"
+ "/home/shaddox/.emacs.d/site-lisp/"
+ "/home/shaddox/Dropbox/linux/emacs/"
+ "/home/shaddox/Dropbox/web development/"
+ "/home/shaddox/Documents/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "sphinx.conf"
+ "seeds.rb"
+ "coupons_controller.rb"
+ "missing_translations.txt"
+ "new.html.erb"
+ "sp.yml"
+ "en.yml"
+ "show.html.erb"
+ "application_controller.rb"
+ ".emacs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/shaddox/repo/seeinginteractive/Sphinx-config/" (19867 40099) "searchd_all.sh" "sphinx.example.conf" "indexer_all.sh" "indexer_delta_all.sh" ".git/" "sphinx.conf" ".gitignore" "../" "indexer_all_initial.sh" "stopwords" "./" "src/" "synonym_editor/")
+
+ ("/home/shaddox/repo/seeinginteractive/" (19867 39791) "../" "./" "Sphinx-config/" "DailyDeals/")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/db/" (19867 39691) "seeds.rb" "../" "./")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/controllers/" (19867 39531) "businesses_controller.rb" "static_controller.rb" "facebook_controller.rb" "users/" "administrators_controller.rb" "remote_console_controller.rb" "diagnostics_controller.rb" "owners_controller.rb" "newspapers_controller.rb" "marketplace_controller.rb" "coupons_controller.rb" "../" "payout_structures_controller.rb" "orders_controller.rb" "deals_controller.rb" "site_views_controller.rb" "subscriptions_controller.rb" "scheduled_payouts_controller.rb" "super_administrators_controller.rb" "application_controller.rb" "./" "contacts_controller.rb" "owners/" "users_controller.rb" "widget_controller.rb")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/config/locales/" (19867 39492) "missing_translations.txt" "devise.en.yml" "sp.yml" "../" "./" "en.yml")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/users/sessions/" (19867 24629) "../" "new.html.erb" "./")
+
+ ("/home/shaddox/Dropbox/linux/rails/" (19867 22460) "install.org" "../" "./")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/mailers/" (19867 22662) "owner_mailer.rb" "../" "user_mailer.rb" "./" "contact_mailer.rb")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/devise/sessions/" (19867 24550) "../" "new.html.erb" "./")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/user_mailer/" (19867 20064) "coupon_expiration_notice.text.erb" "deal_tipped_payment_declined.html.erb" "user_sign_up.text.erb" "deal_not_tipped.text.erb" "refund_request_denied.html.erb" "test_email.text.erb" "password_reset_confirmation.html.erb" "coupon_available_notice.html.erb" "coupon_available_notice.text.erb" "payment_declined.html.erb" "deal_tipped.text.erb" "deal_purchased_confirmation.text.erb" "../" "deal_tipped_payment_processed.text.erb" "deal_tipped_payment_processed.html.erb" "refund_request_approved.text.erb" "payment_processed.text.erb" "payment_declined.text.erb" "./" "deal_tipped_payment_declined.text.erb" "coupon_expiration_notice.html.erb" "refund_request_submitted.text.erb" "deal_not_tipped.html.erb" "password_reset.html.erb" "refund_request_submitted.html.erb" "payment_processed.html.erb" "password_reset.text.erb" "deal_purchased_confirmation.html.erb" "deal_tipped.html.erb" "password_reset_confirmation.text.erb" "refund_request_denied.text.erb" "refund_request_approved.html.erb" "user_sign_up.html.erb")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/devise/" (19867 20064) "sessions/" "../" "registrations/" "passwords/" "mailer/" "confirmations/" "./" "shared/" "unlocks/")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/users/" (19867 20064) "admin/" "sessions/" "../" "registrations/" "show.html.erb" "passwords/" "./")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/views/" (19867 20064) "scheduled_payouts/" "administrators/" "users/" "not_found.erb" "user_mailer/" "site_views/" "../" "businesses/" "layouts/" "orders/" "newspapers/" "contacts/" "super_administrators/" "subscriptions/" "widget/" "./" "contact_mailer/" "devise/" "static/" "deals/" "owner_mailer/" "owners/" "payout_structures/" "coupons/")
+
+ ("/home/shaddox/" (19867 24162) ".gnome2_private/" ".ido.last~" ".fontconfig/" "Videos/" ".dropbox/" "examples.desktop" "Dropbox/" ".thunderbird/" ".config/" "Desktop/" ".ssh/" ".bash_logout" ".profile" ".macromedia/" ".gnome2/" ".dropbox-dist/" ".esd_auth" ".mozilla/" ".rvmrc" ".gconfd/" ".bash_profile" ".fonts.conf" ".gconf/" ".cache/" ".xchat2/" ".thumbnails/" "Templates/" ".bashrc~" ".bash_history" ".dmrc" ".rvm/" ".pki/" "../" ".pulse/" ".gtk-bookmarks" "Public/" ".openoffice.org/" ".recently-used.xbel" ".pulse-cookie" ".bashrc" ".dotfiles/" ".xsession-errors" "./" ".adobe/" ".xsession-errors.old" ".mysql_history" "Pictures/" ".emacs.d/" ".fonts/" "Documents/" ".ido.last" ".gitconfig" "Music/" ".dbus/" ".local/" ".gem/" ".sudo_as_admin_successful" ".gksu.lock" "crap.css" ".nautilus/" "#test.html#" ".emacs~" ".gvfs/" "repo/" ".gstreamer-0.10/" ".ICEauthority" "Downloads/" ".emacs")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/" (19867 22774) "tmp/" "test/" ".git/" "Gemfile" "app/" "Rakefile" "log/" ".remote_console.yml" "config.ru" ".gitignore" "../" ".rspec" "lib/" "spec/" "./" "Gemfile.lock" "script/" "public/" "config/" "README" "vendor/" "doc/" "db/")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/app/" (19867 20064) "views/" "helpers/" "controllers/" "middleware/" "../" "models/" "./" "styles/" "mailers/")
+
+ ("/home/shaddox/repo/seeinginteractive/DailyDeals/config/" (19867 22565) "exceptional.yml" "routes.rb" "environment.rb" "s3.yml" "braintree.yml" "database.yml" "../" "facebook.yml" "application.rb" "boot.rb" "environments/" "./" "initializers/" "locales/" "sendgrid.yml")
+
+ ("/home/shaddox/Dropbox/linux/" (19867 22132) "mount_people.msu_command" "django_stuff.org~" "fstab" "#django_stuff.org#" "emacs/" "django_stuff.org" "../" "emacs.txt" "rails/" "./" "ubuntu_post_install.org" "disable_mouse_accel~" "ubuntu_post_install.org~" "disable_mouse_accel" "ms-fonts/")
+
+ ("/home/shaddox/Documents/" (19866 39781) "#nonsense.py#" "../" "./")
+
+ ("/home/shaddox/Dropbox/linux/emacs/" (19866 52860) "new.emacs" "../" "#.emacs#" "./" ".emacs.bak" "site-lisp/" ".emacs~" ".emacs")
+
+ ("/home/shaddox/.emacs.d/site-lisp/" (19866 53752) "nxhtml/" "color-theme-tango.el" "../" "color-theme-blackboard.el~" "color-theme-gruber-darker.el" "#color-theme-gruber-darker.el#" "color-theme-subdued.el" "./" "color-theme-blackboard.el" "yasnippet-0.6.1b/" "zenburn.el" "color-theme-tangotango.el")
+
+ ("/home/shaddox/repo/" (19867 19993) "seeinginteractive/" "../" "./")
+
+ ("/home/shaddox/.emacs.d/" (19866 53752) "auto-save-list/" "../" "./" "backups/" "site-lisp/")
+
+ ("/home/shaddox/Dropbox/web development/" (19866 51597) "sanity_check.html" "blueprint/" "yui/" "early_arrivals.css" "#early_arrivals.html#" "joshuaclayton-blueprint-css-2e3e4f5/" "../" "early_arrivals.html~" "task_dispatch.html" "early_arrivals.html" "./")
+
+ ("/home/shaddox/Dropbox/" (19866 36954) "wordpress.2010-05-16.xml" "LibertyCampaignSave.SC2Save" "casestudiesincommonlisp/" "international_law_targeting_civilians.txt [No match] [No match]~" "333grade.txt" "pictionary_js_array.txt~" "filmsviewed.txt" "my_programming_questions.txt~" ".dropbox" "Photos/" "watchlist/" "resnet_hours.txt" "seeing_interactive_job_offer_1.jpg" "marktwain.gif" "ea3_share/" "thomas_shaddox_1.jpg" "judicial revue/" "web development/" "page3.pdf" "Elements/" "funny joke pun.txt" "entries.doc" "sceneaccess_lyrics.txt~" "pictionary.html~" "candy_bar_space.ods" "Electric Orange Account ing bank.pdf" "city utilities bill 10-14-2010.pdf" "djangoats/" "crazy lady outside apartment.txt" "films (shaddoxdesk's conflicted copy 2009-08-26).xlsx" "for reinstall/" "class/" "comedic film ideas.docx" "DIET AND NUTRITION.xlsx" "apple support iphone replace" "greattorrent.png" "greplin_interview.txt" "Apress - Practical Django Projects 2nd Edition.pdf" "nuhastic.mid" "resume/" "greplin_interview.txt~" "superfasttorrents.png" "GRE example.txt" "generate_names/" "New folder/" "neale mark twain face.xcf" "truecrypt_tutorial.rtf" "djangoproj/" "programming/" "cubase_scc.png" "marktwain40.gif" "dd.exe" "midi/" ".dropbox.cache/" "films.ods" "discrete and combinatorial mathematics table of contents.png" "my_programming_questions/" "resnet_hours.txt~" "thomas_shaddox_2.jpg" "../" "budget.xlsx" "The Devil's Playground Victory.SC2Save" "xci.xbmc.1080p.fix.sh" "mp3s needing work.txt" "media center pc drivers/" "films.xlsx" "5 ashampoo softwares full version for FREE - SlickDeals.net Forums.htm" "google_cover_letter.txt" "resume.tex" "Public/" "page1.pdf" "hike 11-05-2010/" "SUMMERIDEAS.txt" "IE6.exe" "jonathan coulton bpm.txt" "IE8.exe" "seeing_interactive_interview.txt" "IE7.exe" "website.zip" "history of england.txt" "filmswatched.ods" "csc333grade.ods" "sceneaccess_lyrics.txt" "cloudkick_cover_letter.txt" "strangebook.png" "public key.txt" "iPhone intro.pdf" "./" "films.csv" "pictionary.txt" "GRE example results.txt" "rebates/" "pictionary.html" "sshforgithub/" "neale1.png" "page2.pdf" "mpc-hc64.ini" "This is your Dropbox.txt" "linux/" "wikihell.png" "Pro+Django.pdf" "pictionary.txt~" "pictionary_js_array.txt" "shopping_list.org" "DIET AND NUTRITION (shaddoxdesk's conflicted copy 2010-05-21).xlsx" "seeing_interactive_interview.txt~" "newcompplan.txt" "international_law_targeting_civilians.txt [No match] [No match]" "16x9 content" "site-lisp/" "shopping_list.org~" "chrome youtube addon.png" "movie film ideas" "5870 benchmark 3dmark.3dr" "emacstest/" ".emacs~" "my songs/" "smoustic.mid" "_ReceiptName=MVRegistrationReceipt missouri vehicle license.pdf" "foobar/" "neale2.png" "seeing_interactive_job_offer_2.jpg" "rtorrent seedbox speed.png" "IECollection1708.exe" ".emacs")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

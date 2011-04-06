@@ -1,0 +1,128 @@
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(indent-tabs-mode nil)
+ '(mumamo-chunk-coloring 1)
+ '(scroll-step 8)
+ '(show-paren-mode t)
+ '(tabkey2-mode nil))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#2e3434" :foreground "#eeeeec" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "microsoft" :family "Consolas")))))
+
+(setq load-path (append load-path (list "~/.emacs.d/site-lisp")))
+
+(column-number-mode)
+(delete-selection-mode)
+
+(ido-mode t)
+;; from http://emacsblog.org/2008/05/19/giving-ido-mode-a-second-chance/
+(setq ido-enable-flex-matching t)
+
+;; Make sure all backup files only live in one place
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+;; -----------------------------
+;; KEY BINDINGS and HELPER FUNCTIONS
+;; -----------------------------
+
+;; line movement, from http://www.schuerig.de/michael/blog/index.php/2009/01/16/line-movement-for-emacs/
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (next-line)
+      (transpose-lines 1))
+    (next-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (next-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
+(global-set-key "\M-n" 'move-line-down)
+(global-set-key "\M-p" 'move-line-up)
+
+; Comment region
+(global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-c C-v") 'uncomment-region)
+
+;; Org-mode !!!
+;; The following lines are always needed.  Choose your own keys.
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
+(global-set-key (kbd "C-c C-a") 'org-agenda)
+(global-set-key (kbd "C-c C-b") 'org-iswitchb)
+
+; Make Emacs use "newline-and-indent" when you hit the Enter key so
+; that you don't need to keep using TAB to align yourself when coding.
+; from http://www-cs-students.stanford.edu/~manku/dotemacs.html
+(global-set-key "\C-m" 'newline-and-indent)
+
+(global-set-key "\M-/" 'hippie-expand)
+(global-set-key (kbd "C-l") 'kill-whole-line)
+
+; Easier underscores, idea courtesy of Snider
+(global-set-key (kbd "S-SPC") "_")
+
+; Django template tag macros
+(global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
+(global-set-key (kbd "C-c v") (lambda () (interactive) (insert "{{  }}") (backward-char 3)))
+
+; from http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs/88828#88828
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+(global-set-key (kbd "C-;") 'duplicate-line)
+
+;; -----------------------------
+;; LOAD OTHER PEOPLE'S STUFF
+;; -----------------------------
+
+;; load nXhtml
+;; (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
+;; (setq mumamo-background-colors nil) 
+;; (add-to-list 'auto-mode-alist '("\\.html$" . html-mumamo-mode))
+
+;; YASNIPPET
+(add-to-list 'load-path
+             "~/.emacs.d/site-lisp/yasnippet-0.6.1b")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
+
+;; THEME_STUFF
+(require 'color-theme)
+;; (eval-after-load "color-theme"
+;;   '(progn
+;;      (color-theme-initialize)
+;;      (color-theme-hober)))
+
+(color-theme-initialize)
+(require 'zenburn)
+(require 'color-theme-tango)
+(require 'color-theme-gruber-darker)
+(require 'color-theme-tangotango)
+(require 'color-theme-subdued)
+(color-theme-tangotango)
+
+
+
+
