@@ -121,6 +121,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . html-mumamo-mode))
 
 ;; YASNIPPET
+
 (add-to-list 'load-path
              "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
 (require 'yasnippet)
@@ -128,6 +129,7 @@
 (yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
 
 ;; THEME_STUFF
+
 (require 'color-theme)
 ;; (eval-after-load "color-theme"
 ;;   '(progn
@@ -141,6 +143,40 @@
 (require 'color-theme-tangotango)
 (require 'color-theme-subdued)
 (color-theme-tangotango)
+
+(setq my-color-themes (list 'color-theme-tangotango 'color-theme-vim-colors 
+                              'color-theme-zenburn
+                              'color-theme-gruber-darker
+                              'color-theme-subdued
+                              'color-theme-scintilla
+                              'color-theme-ryerson
+                              'color-theme-jonadabian-slate
+                              'color-theme-gtk-ide
+                              ))
+;; http://www.emacswiki.org/cgi-bin/wiki/ColorTheme#toc7
+;; Hit a key to cycle through my-color-themes
+(defun my-theme-set-default () ; Set the first row
+  (interactive)
+  (setq theme-current my-color-themes)
+  (funcall (car theme-current)))
+
+(defun my-describe-theme () ; Show the current theme
+  (interactive)
+  (message "%s" (car theme-current)))
+
+;; Set the next theme (fixed by Chris Webber - tanks)
+(defun my-theme-cycle ()		
+  (interactive)
+  (setq theme-current (cdr theme-current))
+  (if (null theme-current)
+      (setq theme-current my-color-themes))
+  (funcall (car theme-current))
+  (message "%S" (car theme-current)))
+
+(setq theme-current my-color-themes)
+(setq color-theme-is-global nil) ; Initialization
+(my-theme-set-default)
+(global-set-key [f12] 'my-theme-cycle)
 
 ;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
 ;; Rinari
