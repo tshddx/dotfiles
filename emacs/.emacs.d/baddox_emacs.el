@@ -117,10 +117,10 @@
 
 ;; YASNIPPET
 (add-to-list 'load-path
-             "~/.emacs.d/site-lisp/yasnippet-0.6.1b")
+             "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
+(yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
 
 ;; THEME_STUFF
 (require 'color-theme)
@@ -137,6 +137,7 @@
 (require 'color-theme-subdued)
 (color-theme-tangotango)
 
-
-
-
+;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
+;; Rinari
+(add-to-list 'load-path "~/dotfiles/emacs/.emacs.d/site-lisp/rinari")
+(require 'rinari)
