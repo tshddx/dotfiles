@@ -84,6 +84,11 @@
 ; from http://www-cs-students.stanford.edu/~manku/dotemacs.html
 (global-set-key "\C-m" 'newline-and-indent)
 
+;; http://peter.peca.dk/art_Emacs_Ruby_Mode.html
+;; Indent when pressing Enter in Ruby-Mode
+(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
+
+
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key (kbd "C-l") 'kill-whole-line)
 
