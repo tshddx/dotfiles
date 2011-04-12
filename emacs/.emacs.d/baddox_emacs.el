@@ -31,7 +31,7 @@
 ;; Make sure all backup files only live in one place
 ;; http://amitp.blogspot.com/2007/03/emacs-move-autosave-and-backup-files.html
 (defvar user-temporary-file-directory
-  (concat temporary-file-directory user-login-name "/"))
+  "~/.emacs-backup")
 (make-directory user-temporary-file-directory t)
 (setq backup-by-copying t)
 (setq backup-directory-alist
