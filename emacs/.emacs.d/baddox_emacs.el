@@ -42,6 +42,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 
+;; Global line numbers
+(global-linum-mode)
+
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
 ;; -----------------------------
@@ -96,8 +99,12 @@
 (global-set-key (kbd "S-SPC") "_")
 
 ; Django template tag macros
-(global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
-(global-set-key (kbd "C-c v") (lambda () (interactive) (insert "{{  }}") (backward-char 3)))
+;; (global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
+;; (global-set-key (kbd "C-c v") (lambda () (interactive) (insert "{{  }}") (backward-char 3)))
+
+; Rails view tag macros
+(global-set-key (kbd "C-c b") (lambda () (interactive) (insert "<%  %>") (backward-char 3)))
+(global-set-key (kbd "C-c v") (lambda () (interactive) (insert "<%=  %>") (backward-char 3)))
 
 ; from http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs/88828#88828
 (defun duplicate-line()
