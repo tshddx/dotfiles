@@ -144,15 +144,11 @@
 (require 'color-theme-subdued)
 (color-theme-tangotango)
 
-(setq my-color-themes (list 'color-theme-tangotango 'color-theme-vim-colors 
-                              'color-theme-zenburn
-                              'color-theme-gruber-darker
-                              'color-theme-subdued
-                              'color-theme-scintilla
-                              'color-theme-ryerson
-                              'color-theme-jonadabian-slate
-                              'color-theme-gtk-ide
-                              ))
+(setq my-color-themes (list 'color-theme-tangotango
+                            'color-theme-zenburn
+                            'color-theme-gruber-darker
+                            'color-theme-subdued
+                            ))
 ;; http://www.emacswiki.org/cgi-bin/wiki/ColorTheme#toc7
 ;; Hit a key to cycle through my-color-themes
 (defun my-theme-set-default () ; Set the first row
