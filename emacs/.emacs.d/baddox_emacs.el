@@ -130,12 +130,14 @@
 (require 'color-theme-gruber-darker)
 (require 'color-theme-tangotango)
 (require 'color-theme-subdued)
-(color-theme-zenburn)
+(color-theme-vim-colors)
 
-(setq my-color-themes (list 'color-theme-tangotango
+(setq my-color-themes (list 'color-theme-vim-colors
+                            'color-theme-tangotango
                             'color-theme-zenburn
                             'color-theme-gruber-darker
                             'color-theme-subdued
+                            'color-theme-vim-colors
                             ))
 ;; http://www.emacswiki.org/cgi-bin/wiki/ColorTheme#toc7
 ;; Hit a key to cycle through my-color-themes
@@ -158,14 +160,14 @@
   (message "%S" (car theme-current)))
 
 (setq theme-current my-color-themes)
-(setq color-theme-is-global nil) ; Initialization
+;; (setq color-theme-is-global nil) ; Initialization
 (my-theme-set-default)
 (global-set-key [f12] 'my-theme-cycle)
 
 ;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
 ;; Rinari
-(add-to-list 'load-path "~/dotfiles/emacs/.emacs.d/site-lisp/rinari")
-(require 'rinari)
+;; (add-to-list 'load-path "~/dotfiles/emacs/.emacs.d/site-lisp/rinari")
+;; (require 'rinari)
 
 ;; http://stackoverflow.com/questions/3669511/the-function-to-show-current-files-full-path-in-mini-buffer/3669681#3669681
 (defun show-file-name ()
