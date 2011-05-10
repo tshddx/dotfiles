@@ -176,3 +176,6 @@
   (message (buffer-file-name)))
 
 (global-set-key [f5] 'show-file-name)
+
+(require 'autopair)
+(autopair-global-mode) ;; to enable in all buffers
