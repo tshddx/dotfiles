@@ -81,12 +81,12 @@
 (global-set-key (kbd "S-SPC") "_")
 
 ; Django template tag macros
-(global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
-(global-set-key (kbd "C-c v") (lambda () (interactive) (insert "{{  }}") (backward-char 3)))
+;; (global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
+;; (global-set-key (kbd "C-c v") (lambda () (interactive) (insert "{{  }}") (backward-char 3)))
 
 ; Rails view tag macros
-;; (global-set-key (kbd "C-c b") (lambda () (interactive) (insert "<%  %>") (backward-char 3)))
-;; (global-set-key (kbd "C-c v") (lambda () (interactive) (insert "<%=  %>") (backward-char 3)))
+(global-set-key (kbd "C-c b") (lambda () (interactive) (insert "<%  %>") (backward-char 3)))
+(global-set-key (kbd "C-c v") (lambda () (interactive) (insert "<%=  %>") (backward-char 3)))
 
 ; from http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs/88828#88828
 (defun duplicate-line()
@@ -120,49 +120,19 @@
 ;; THEME_STUFF
 
 (require 'color-theme)
-;; (eval-after-load "color-theme"
-;;   '(progn
-;;      (color-theme-initialize)
-;;      (color-theme-hober)))
-
-(color-theme-initialize)
-(require 'zenburn)
-(require 'color-theme-gruber-darker)
 (require 'color-theme-tangotango)
-(require 'color-theme-subdued)
-(color-theme-vim-colors)
+(eval-after-load "color-theme"
+  '(progn
+     (eval-after-load "color-theme-tangotango"
+       '(progn
+          (color-theme-initialize)
+          (color-theme-tangotango)
+          ))))
 
-(setq my-color-themes (list 'color-theme-vim-colors
-                            'color-theme-tangotango
-                            'color-theme-zenburn
-                            'color-theme-gruber-darker
-                            'color-theme-subdued
-                            'color-theme-vim-colors
-                            ))
-;; http://www.emacswiki.org/cgi-bin/wiki/ColorTheme#toc7
-;; Hit a key to cycle through my-color-themes
-(defun my-theme-set-default () ; Set the first row
-  (interactive)
-  (setq theme-current my-color-themes)
-  (funcall (car theme-current)))
-
-(defun my-describe-theme () ; Show the current theme
-  (interactive)
-  (message "%s" (car theme-current)))
-
-;; Set the next theme (fixed by Chris Webber - tanks)
-(defun my-theme-cycle ()		
-  (interactive)
-  (setq theme-current (cdr theme-current))
-  (if (null theme-current)
-      (setq theme-current my-color-themes))
-  (funcall (car theme-current))
-  (message "%S" (car theme-current)))
-
-(setq theme-current my-color-themes)
-;; (setq color-theme-is-global nil) ; Initialization
-(my-theme-set-default)
-(global-set-key [f12] 'my-theme-cycle)
+(require 'zenburn)
+;; (require 'color-theme-gruber-darker)
+;; (require 'color-theme-subdued)
+;; (require 'color-theme-tomorrow)
 
 ;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
 ;; Rinari
