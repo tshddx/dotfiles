@@ -72,7 +72,7 @@
 ;; http://peter.peca.dk/art_Emacs_Ruby_Mode.html
 ;; Indent when pressing Enter in Ruby-Mode
 (add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-
+(setq ruby-deep-indent-paren nil)
 
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key (kbd "C-l") 'kill-whole-line)
