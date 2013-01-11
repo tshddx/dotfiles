@@ -147,8 +147,8 @@
 
 (global-set-key [f5] 'show-file-name)
 
-(require 'autopair)
-(autopair-global-mode) ;; to enable in all buffers
+;; (require 'autopair)
+;; (autopair-global-mode) ;; to enable in all buffers
 
 ;; Uniquify buffer names http://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
 (require 'uniquify)
