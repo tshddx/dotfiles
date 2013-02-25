@@ -27,6 +27,14 @@
 ;; Global line numbers
 (global-linum-mode)
 
+;; key bindings
+(when (eq system-type 'darwin) ;; mac specific settings
+  (setq mac-option-modifier 'alt)
+  (setq mac-command-modifier 'control)
+  (setq mac-control-modifier 'meta)
+  (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
+          )
+
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
 ;; -----------------------------
@@ -119,20 +127,25 @@
 
 ;; THEME_STUFF
 
-(require 'color-theme)
-(require 'color-theme-tangotango)
-(eval-after-load "color-theme"
-  '(progn
-     (eval-after-load "color-theme-tangotango"
-       '(progn
-          (color-theme-initialize)
-          (color-theme-tangotango)
-          ))))
+;; (require 'color-theme)
+;; (require 'color-theme-tangotango)
+;; (eval-after-load "color-theme"
+;;   '(progn
+;;      (eval-after-load "color-theme-tangotango"
+;;        '(progn
+;;           (color-theme-initialize)
+;;           (color-theme-tangotango)
+;;           ))))
 
-(require 'zenburn)
+;; (require 'zenburn)
 ;; (require 'color-theme-gruber-darker)
 ;; (require 'color-theme-subdued)
 ;; (require 'color-theme-tomorrow)
+
+;; disabled the color-theme stuff, since emacs 24 has built-in theme support. what follows is the built-in stuff
+
+(add-to-list 'custom-theme-load-path "~/dotfiles/emacs/.emacs.d/themes/")
+(load-theme 'zenburn t)
 
 ;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
 ;; Rinari
