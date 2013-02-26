@@ -27,13 +27,22 @@
 ;; Global line numbers
 (global-linum-mode)
 
-;; key bindings
 (when (eq system-type 'darwin) ;; mac specific settings
+  ;; default font
+;;  (set-face-attribute 'default nil :font "Andale Mono")
+  (set-default-font "Andale Mono")
+  ;; key bindings
   (setq mac-option-modifier 'alt)
   (setq mac-command-modifier 'control)
   (setq mac-control-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
           )
+
+(require 'package)
+(add-to-list 'package-archives 
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
@@ -127,25 +136,36 @@
 
 ;; THEME_STUFF
 
-;; (require 'color-theme)
-;; (require 'color-theme-tangotango)
-;; (eval-after-load "color-theme"
-;;   '(progn
-;;      (eval-after-load "color-theme-tangotango"
-;;        '(progn
-;;           (color-theme-initialize)
-;;           (color-theme-tangotango)
-;;           ))))
+;; define my own plist-to-alist function, since emacs 24 doesn't have it and it's required for color-themes
+;; from http://stackoverflow.com/a/14183331
+(defun plist-to-alist (the-plist)
+  (defun get-tuple-from-plist (the-plist)
+    (when the-plist
+      (cons (car the-plist) (cadr the-plist))))
 
-;; (require 'zenburn)
-;; (require 'color-theme-gruber-darker)
-;; (require 'color-theme-subdued)
+  (let ((alist '()))
+    (while the-plist
+      (add-to-list 'alist (get-tuple-from-plist the-plist))
+      (setq the-plist (cddr the-plist)))
+  alist))
+
+
+(require 'color-theme)
+(require 'color-theme-tangotango)
+(eval-after-load "color-theme"
+  '(progn
+     (eval-after-load "color-theme"
+       '(color-theme-tangotango))))
+
+(require 'zenburn)
+(require 'color-theme-gruber-darker)
+(require 'color-theme-subdued)
 ;; (require 'color-theme-tomorrow)
 
 ;; disabled the color-theme stuff, since emacs 24 has built-in theme support. what follows is the built-in stuff
 
-(add-to-list 'custom-theme-load-path "~/dotfiles/emacs/.emacs.d/themes/")
-(load-theme 'zenburn t)
+;; (add-to-list 'custom-theme-load-path "~/dotfiles/emacs/.emacs.d/themes/")
+;; (load-theme 'solarized-dark t)
 
 ;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
 ;; Rinari
