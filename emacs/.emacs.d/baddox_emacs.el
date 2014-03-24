@@ -44,6 +44,12 @@
                "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; Save sessions
+(desktop-save-mode 1)
+
+(hl-line-mode 1)
+(set-face-background hl-line-face "gray23")
+
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
 ;; -----------------------------
