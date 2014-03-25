@@ -131,6 +131,8 @@
 (require 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-;") 'duplicate-current-line-or-region)
 
+(global-set-key (kbd "C-o") 'next-multiframe-window)
+(global-set-key (kbd "C-i") 'previous-multiframe-window)
 
 ;; -----------------------------
 ;; LOAD OTHER PEOPLE'S STUFF
