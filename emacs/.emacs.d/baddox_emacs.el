@@ -47,7 +47,7 @@
 ;; Save sessions
 (desktop-save-mode 1)
 
-(hl-line-mode 1)
+(global-hl-line-mode)
 (set-face-background hl-line-face "gray23")
 
 ;; -----------------------------
