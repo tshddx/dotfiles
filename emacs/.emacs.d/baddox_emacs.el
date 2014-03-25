@@ -203,3 +203,14 @@
 ;; Uniquify buffer names http://www.gnu.org/software/emacs/manual/html_node/emacs/Uniquify.html
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+;;
+;; BEGIN JORGEN, from http://www.emacswiki.org/emacs/JorgenSchaefersEmacsConfig
+;;
+
+;; get rid of yes-or-no questions - y or n is enough
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;;
+;; END JORGEN
+;;
