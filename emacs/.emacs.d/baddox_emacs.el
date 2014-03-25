@@ -55,37 +55,41 @@
 ;; -----------------------------
 
 ;; line movement, from http://www.schuerig.de/michael/blog/index.php/2009/01/16/line-movement-for-emacs/
-(defun move-line-down ()
-  (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (next-line)
-      (transpose-lines 1))
-    (next-line)
-    (move-to-column col)))
+;; (defun move-line-down ()
+;;   (interactive)
+;;   (let ((col (current-column)))
+;;     (save-excursion
+;;       (next-line)
+;;       (transpose-lines 1))
+;;     (next-line)
+;;     (move-to-column col)))
 
-(defun move-line-up ()
-  (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (next-line)
-      (transpose-lines -1))
-    (move-to-column col)))
+;; (defun move-line-up ()
+;;   (interactive)
+;;   (let ((col (current-column)))
+;;     (save-excursion
+;;       (next-line)
+;;       (transpose-lines -1))
+;;     (move-to-column col)))
 
-(global-set-key "\M-n" 'move-line-down)
-(global-set-key "\M-p" 'move-line-up)
+;; (global-set-key "\M-n" 'move-line-down)
+;; (global-set-key "\M-p" 'move-line-up)
+
+;; Potentially better move-lines, from https://github.com/targzeta/move-lines
+(require 'move-lines)
+(move-lines-binding)
 
 ; Comment region
-(global-set-key (kbd "C-c C-c") 'comment-region)
-(global-set-key (kbd "C-c C-v") 'uncomment-region)
+;; (global-set-key (kbd "C-c C-c") 'comment-region)
+;; (global-set-key (kbd "C-c C-v") 'uncomment-region)
 
 ;; Org-mode !!!
 ;; The following lines are always needed.  Choose your own keys.
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c C-l") 'org-insert-link)
-(global-set-key (kbd "C-c C-a") 'org-agenda)
-(global-set-key (kbd "C-c C-b") 'org-iswitchb)
+;; (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+;; (global-set-key (kbd "C-c l") 'org-store-link)
+;; (global-set-key (kbd "C-c C-l") 'org-insert-link)
+;; (global-set-key (kbd "C-c C-a") 'org-agenda)
+;; (global-set-key (kbd "C-c C-b") 'org-iswitchb)
 
 ; Make Emacs use "newline-and-indent" when you hit the Enter key so
 ; that you don't need to keep using TAB to align yourself when coding.
@@ -101,7 +105,7 @@
 (global-set-key (kbd "C-l") 'kill-whole-line)
 
 ; Easier underscores, idea courtesy of Snider
-(global-set-key (kbd "S-SPC") "_")
+;; (global-set-key (kbd "S-SPC") "_")
 
 ; Django template tag macros
 ;; (global-set-key (kbd "C-c b") (lambda () (interactive) (insert "{%  %}") (backward-char 3)))
@@ -112,16 +116,21 @@
 (global-set-key (kbd "C-c v") (lambda () (interactive) (insert "<%=  %>") (backward-char 3)))
 
 ; from http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs/88828#88828
-(defun duplicate-line()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (next-line 1)
-  (yank)
-)
-(global-set-key (kbd "C-;") 'duplicate-line)
+;; (defun duplicate-line()
+;;   (interactive)
+;;   (move-beginning-of-line 1)
+;;   (kill-line)
+;;   (yank)
+;;   (open-line 1)
+;;   (next-line 1)
+;;   (yank)
+;; )
+;; (global-set-key (kbd "C-;") 'duplicate-line)
+
+; Potentially better duplicate line/region, from http://tuxicity.se/emacs/elisp/2010/03/11/duplicate-current-line-or-region-in-emacs.html
+(require 'duplicate-current-line-or-region)
+(global-set-key (kbd "C-;") 'duplicate-current-line-or-region)
+
 
 ;; -----------------------------
 ;; LOAD OTHER PEOPLE'S STUFF
@@ -134,11 +143,11 @@
 
 ;; YASNIPPET
 
-(add-to-list 'load-path
-             "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
+;; (add-to-list 'load-path
+;;              "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
+;; (require 'yasnippet)
+;; (yas/initialize)
+;; (yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
 
 ;; THEME_STUFF
 
@@ -163,9 +172,9 @@
      (eval-after-load "color-theme"
        '(color-theme-tangotango))))
 
-(require 'zenburn)
-(require 'color-theme-gruber-darker)
-(require 'color-theme-subdued)
+;; (require 'zenburn)
+;; (require 'color-theme-gruber-darker)
+;; (require 'color-theme-subdued)
 ;; (require 'color-theme-tomorrow)
 
 ;; disabled the color-theme stuff, since emacs 24 has built-in theme support. what follows is the built-in stuff
