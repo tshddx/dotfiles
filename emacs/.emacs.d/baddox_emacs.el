@@ -184,11 +184,6 @@
 ;; (add-to-list 'custom-theme-load-path "~/dotfiles/emacs/.emacs.d/themes/")
 ;; (load-theme 'solarized-dark t)
 
-;; http://rinari.rubyforge.org/Basic-Setup.html#Basic-Setup
-;; Rinari
-;; (add-to-list 'load-path "~/dotfiles/emacs/.emacs.d/site-lisp/rinari")
-;; (require 'rinari)
-
 ;; http://stackoverflow.com/questions/3669511/the-function-to-show-current-files-full-path-in-mini-buffer/3669681#3669681
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
