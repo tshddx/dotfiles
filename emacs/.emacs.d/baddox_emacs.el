@@ -220,4 +220,3 @@
 ;; https://github.com/ajvargo/ruby-refactor
 (require 'ruby-refactor)
 (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
-
