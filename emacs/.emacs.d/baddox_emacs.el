@@ -131,8 +131,13 @@
 (require 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-;") 'duplicate-current-line-or-region)
 
+;; Preserve TAB binding and allow C-i, http://stackoverflow.com/a/1792482
+;; Seems to screw up things, like tab completion in minibuffer
+;; (setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
+;; (global-set-key (kbd "<tab>") 'indent-for-tab-command)
+
+(global-set-key (kbd "C-S-O") 'previous-multiframe-window)
 (global-set-key (kbd "C-o") 'next-multiframe-window)
-(global-set-key (kbd "C-i") 'previous-multiframe-window)
 
 ;; -----------------------------
 ;; LOAD OTHER PEOPLE'S STUFF
