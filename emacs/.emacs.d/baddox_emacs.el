@@ -139,6 +139,10 @@
 (global-set-key (kbd "C-S-O") 'previous-multiframe-window)
 (global-set-key (kbd "C-o") 'next-multiframe-window)
 
+;; Shortcuts for navigating through symbols
+(global-set-key (kbd "C-S-S") 'highlight-symbol-next)
+(global-set-key (kbd "C-S-R") 'highlight-symbol-prev)
+
 ;; -----------------------------
 ;; LOAD OTHER PEOPLE'S STUFF
 ;; -----------------------------
@@ -220,3 +224,8 @@
 ;; https://github.com/ajvargo/ruby-refactor
 (require 'ruby-refactor)
 (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+
+;; https://github.com/nschum/highlight-symbol.el
+(require 'highlight-symbol)
+(highlight-symbol-mode)
+
