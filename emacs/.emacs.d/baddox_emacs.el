@@ -50,6 +50,19 @@
 (global-hl-line-mode)
 (set-face-background hl-line-face "gray23")
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
 ;; -----------------------------
@@ -130,6 +143,12 @@
 ; Potentially better duplicate line/region, from http://tuxicity.se/emacs/elisp/2010/03/11/duplicate-current-line-or-region-in-emacs.html
 (require 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-;") 'duplicate-current-line-or-region)
+
+;; killing the C-; key binding that web-mode for some reason steals.
+(defun restore-my-binding ()
+  (define-key web-mode-map (kbd "C-;") 'duplicate-current-line-or-region))
+(add-hook 'web-mode-hook 'restore-my-binding)
+
 
 ;; Preserve TAB binding and allow C-i, http://stackoverflow.com/a/1792482
 ;; Seems to screw up things, like tab completion in minibuffer
@@ -228,3 +247,4 @@
 ;; Shortcuts for navigating through symbols
 (global-set-key (kbd "C-S-S") 'highlight-symbol-next)
 (global-set-key (kbd "C-S-R") 'highlight-symbol-prev)
+
