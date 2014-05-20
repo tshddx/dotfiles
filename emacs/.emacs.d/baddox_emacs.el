@@ -62,6 +62,10 @@
 (setq web-mode-markup-indent-offset 2)
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
+(setq web-mode-style-padding 2)
+(setq web-mode-script-padding 2)
+(setq web-mode-block-padding 0)
+
 
 ;; -----------------------------
 ;; KEY BINDINGS and HELPER FUNCTIONS
@@ -248,3 +252,6 @@
 (global-set-key (kbd "C-S-S") 'highlight-symbol-next)
 (global-set-key (kbd "C-S-R") 'highlight-symbol-prev)
 
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+             ("marmalade" . "http://marmalade-repo.org/packages/")
+             ("melpa" . "http://melpa.milkbox.net/packages/")))
