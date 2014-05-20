@@ -10,7 +10,11 @@ there's a region, all lines that region covers will be duplicated."
     (setq beg (line-beginning-position))
     (if mark-active
         (exchange-point-and-mark))
-    (setq end (line-end-position))
+    ;; Don't include the last line if a region exists and the point is at the beginning of the last line.
+    (if (and mark-active (= origin (line-beginning-position)))
+        (setq end (- origin 1))
+        (setq end (line-end-position))
+      )
     (let ((region (buffer-substring-no-properties beg end)))
       (dotimes (i arg)
         (goto-char end)
