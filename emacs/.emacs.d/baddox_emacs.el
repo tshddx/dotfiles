@@ -148,11 +148,17 @@
 (require 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-;") 'duplicate-current-line-or-region)
 
-;; killing the C-; key binding that web-mode for some reason steals.
-(defun restore-my-binding ()
-  (define-key web-mode-map (kbd "C-;") 'duplicate-current-line-or-region))
-(add-hook 'web-mode-hook 'restore-my-binding)
+(defun close-element-and-indent ()
+  (interactive)
+  (web-mode-element-close)
+  (indent-for-tab-command)
+  )
 
+(add-hook 'web-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c /") 'close-element-and-indent)
+            (local-set-key (kbd "C-;") 'duplicate-current-line-or-region) ;; Because web-mode tries to steal this.
+            ))
 
 ;; Preserve TAB binding and allow C-i, http://stackoverflow.com/a/1792482
 ;; Seems to screw up things, like tab completion in minibuffer
