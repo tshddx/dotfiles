@@ -11,6 +11,7 @@
  '(custom-safe-themes (quote ("36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(desktop-path (quote ("~/.emacs.d/" "~")))
  '(display-time-day-and-date t)
+ '(display-time-mode t)
  '(fci-rule-color "#383838")
  '(highlight-symbol-idle-delay 0)
  '(highlight-symbol-on-navigation-p t)
