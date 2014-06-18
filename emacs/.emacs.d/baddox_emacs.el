@@ -123,6 +123,8 @@
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key (kbd "C-l") 'kill-whole-line)
 
+(global-set-key (kbd "C-d") 'delete-forward-char); instead of just delete-char, which doesn't delete active region
+
 ; Easier underscores, idea courtesy of Snider
 ;; (global-set-key (kbd "S-SPC") "_")
 
