@@ -3,10 +3,6 @@
 (column-number-mode)
 (delete-selection-mode)
 
-(ido-mode t)
-;; from http://emacsblog.org/2008/05/19/giving-ido-mode-a-second-chance/
-(setq ido-enable-flex-matching t)
-
 ;; ;; Make sure all backup files only live in one place
 ;; (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
@@ -39,7 +35,7 @@
           )
 
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
              '("marmalade" .
                "http://marmalade-repo.org/packages/"))
 (package-initialize)
@@ -192,16 +188,16 @@
 
 ;; load nXhtml
 ;; (load "~/.emacs.d/site-lisp/nxhtml/autostart.el")
-;; (setq mumamo-background-colors nil) 
+;; (setq mumamo-background-colors nil)
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . html-mumamo-mode))
 
 ;; YASNIPPET
 
-;; (add-to-list 'load-path
-;;              "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
-;; (require 'yasnippet)
-;; (yas/initialize)
-;; (yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
+(add-to-list 'load-path
+             "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/dotfiles/emacs/.emacs.d/site-lisp/yasnippet-0.6.1b/snippets")
 
 ;; THEME_STUFF
 
@@ -279,3 +275,77 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
              ("marmalade" . "http://marmalade-repo.org/packages/")
              ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+(define-key projectile-mode-map (kbd "C-x C-f") 'projectile-find-file)
+(global-set-key (kbd "A-x A-f") 'ido-find-file)
+
+(ido-mode 1)
+(ido-everywhere 1)
+(require 'flx-ido)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+
+;;
+;; JavaScript stuff
+;; http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
+;;
+
+;; use web-mode for .jsx files
+;(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+;; http://www.flycheck.org/manual/latest/index.html
+;(require 'flycheck)
+
+;; turn on flychecking globally
+;(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable jshint since we prefer eslint checking
+;(setq-default flycheck-disabled-checkers
+;(append flycheck-disabled-checkers
+;    '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
+;(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; disable json-jsonlist checking for json files
+;(setq-default flycheck-disabled-checkers
+;  (append flycheck-disabled-checkers
+;    '(json-jsonlist)))
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+
+;; turn on flychecking globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; disable default ruby checker since we prefer rubocop
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(ruby)))
+
+;; use rubocop with ruby-mode for ruby files
+(flycheck-add-mode 'ruby-rubocop 'ruby-mode)
+
+(global-set-key (kbd "A-n") 'flycheck-next-error)
+(global-set-key (kbd "A-p") 'flycheck-previous-error)
+
+;; make helm window full width at bottom with 40% height
+;; https://www.reddit.com/r/emacs/comments/345vtl/make_helm_window_at_the_bottom_without_using_any/
+(add-to-list 'display-buffer-alist
+                    `(,(rx bos "*helm" (* not-newline) "*" eos)
+                         (display-buffer-in-side-window)
+                         (inhibit-same-window . t)
+                         (window-height . 0.4)))
+
+(defvar grep-find-ignored-files (list))
+(defvar grep-find-ignored-directories (list))
+
+;; helm completion for running functions
+(global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t)
