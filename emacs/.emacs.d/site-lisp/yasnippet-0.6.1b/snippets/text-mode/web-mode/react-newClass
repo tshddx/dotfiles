@@ -1,0 +1,26 @@
+# key: rnc
+# --
+import React from 'react';
+
+export default class $1 extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+    };
+  }
+
+  render() {
+    return (
+      $0
+    );
+  }
+});
+
+$1.propTypes = {
+  foo: React.PropTypes.bool.isRequired,
+};
+
+$1.defaultProps = {
+  foo: true,
+};
