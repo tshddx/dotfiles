@@ -18,6 +18,7 @@
  '(display-time-mode t)
  '(fci-rule-color "#383838")
  '(flycheck-ruby-rubocop-executable "/Users/shaddox/.rbenv/shims/rubocop")
+ '(highlight-symbol-colors (quote ("dark blue")))
  '(highlight-symbol-idle-delay 0)
  '(highlight-symbol-on-navigation-p t)
  '(indent-tabs-mode nil)
@@ -49,5 +50,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-symbol-face ((t (:background "selectedMenuItemColor")))))
+ '(highlight-symbol-face ((t (:background "gray30")))))
 (put 'downcase-region 'disabled nil)

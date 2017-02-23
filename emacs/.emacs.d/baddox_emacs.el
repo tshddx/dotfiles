@@ -269,8 +269,8 @@
 (highlight-symbol-mode)
 
 ;; Shortcuts for navigating through symbols
-(global-set-key (kbd "C-S-S") 'highlight-symbol-next)
-(global-set-key (kbd "C-S-R") 'highlight-symbol-prev)
+(global-set-key (kbd "C-S-N") 'highlight-symbol-next)
+(global-set-key (kbd "C-S-P") 'highlight-symbol-prev)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
              ("marmalade" . "http://marmalade-repo.org/packages/")
