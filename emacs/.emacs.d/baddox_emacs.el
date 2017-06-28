@@ -1,5 +1,9 @@
 (setq load-path (append load-path (list "~/dotfiles/emacs/.emacs.d/site-lisp")))
 
+;; listens to emacsclient daemon to support opening files from terminal
+;; http://stackoverflow.com/questions/10171280/how-to-launch-gui-emacs-from-command-line-in-osx/10178816#10178816
+(server-start)
+
 (column-number-mode)
 (delete-selection-mode)
 
@@ -57,6 +61,9 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -70,13 +77,14 @@
   )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
+
 (setq web-mode-engines-alist
       '(
         ("ctemplate" . "\\.hbs.erb\\'")
         )
       )
 
-
+(require 'haml-mode)
 
 
 ;; -----------------------------
@@ -215,12 +223,12 @@
   alist))
 
 
-(require 'color-theme)
-(require 'color-theme-tangotango)
-(eval-after-load "color-theme"
-  '(progn
-     (eval-after-load "color-theme"
-       '(color-theme-tangotango))))
+;; (require 'color-theme)
+;; (require 'color-theme-tangotango)
+;; (eval-after-load "color-theme"
+;;   '(progn
+;;      (eval-after-load "color-theme"
+;;        '(color-theme-tangotango))))
 
 ;; (require 'zenburn)
 ;; (require 'color-theme-gruber-darker)
@@ -266,7 +274,11 @@
 
 ;; https://github.com/nschum/highlight-symbol.el
 (require 'highlight-symbol)
-(highlight-symbol-mode)
+;; turning a minor mode into global: https://stackoverflow.com/a/16048501
+(define-globalized-minor-mode global-highlight-symbol-mode highlight-symbol-mode
+  (lambda () (highlight-symbol-mode 1)))
+
+(global-highlight-symbol-mode 1)
 
 ;; Shortcuts for navigating through symbols
 (global-set-key (kbd "C-S-N") 'highlight-symbol-next)
@@ -349,3 +361,32 @@
 ;; helm completion for running functions
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-M-x-fuzzy-match t)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; From https://coderwall.com/p/u-l0ra/ruby-code-folding-in-emacs
+(add-hook 'ruby-mode-hook
+  (lambda () (hs-minor-mode)))
+
+(eval-after-load "hideshow"
+  '(add-to-list 'hs-special-modes-alist
+    `(ruby-mode
+      ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+      ,(rx (or "}" "]" "end"))                       ; Block end
+      ,(rx (or "#" "=begin"))                        ; Comment start
+      ruby-forward-sexp nil)))
+
+(global-set-key (kbd "C-c h") 'hs-hide-block)
+(global-set-key (kbd "C-c s") 'hs-show-block)
+
+(defun sort-lines-nocase ()
+  (interactive)
+  (let ((sort-fold-case t))
+    (call-interactively 'sort-lines)))
+
+(with-eval-after-load 'rjsx
+  (define-key rjsx-mode-map "<" nil)
+  (define-key rjsx-mode-map (kbd "C-d") nil))
+
+(require 'prettier-js)
+;(add-hook 'rjsx-mode-hook 'prettier-js-mode)

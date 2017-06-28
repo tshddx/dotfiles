@@ -1,8 +1,17 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#3f3f3f" "#cc9393" "#7f9f7f" "#f0dfaf" "#8cd0d3" "#dc8cc3" "#93e0e3" "#dcdccc"])
  '(ansi-term-color-vector
@@ -10,12 +19,16 @@
  '(column-number-mode t)
  '(css-indent-offset 2)
  '(cursor-in-non-selected-windows nil)
+ '(custom-enabled-themes (quote (tangotango)))
  '(custom-safe-themes
    (quote
-    ("36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
+    ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(desktop-path (quote ("~/.emacs.d/" "~")))
  '(display-time-day-and-date t)
  '(display-time-mode t)
+ '(exec-path
+   (quote
+    ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
  '(fci-rule-color "#383838")
  '(flycheck-ruby-rubocop-executable "/Users/shaddox/.rbenv/shims/rubocop")
  '(highlight-symbol-colors (quote ("dark blue")))
@@ -23,7 +36,12 @@
  '(highlight-symbol-on-navigation-p t)
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
+ '(js2-strict-missing-semi-warning nil)
+ '(js2-strict-trailing-comma-warning nil)
  '(mumamo-chunk-coloring 1)
+ '(package-selected-packages
+   (quote
+    (rjsx-mode ag helm helm-ag haml-mode tangotango-theme web-mode s projectile highlight-symbol flycheck flx-ido)))
  '(ruby-insert-encoding-magic-comment nil)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-step 16)
