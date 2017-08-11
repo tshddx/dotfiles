@@ -1,0 +1,5 @@
+# To install:
+# git config --global core.excludesfile ~/dotfiles/.gitignore_global
+
+# Ignore the weird backup/lock files that Emacs sometimes makes
+.#*
