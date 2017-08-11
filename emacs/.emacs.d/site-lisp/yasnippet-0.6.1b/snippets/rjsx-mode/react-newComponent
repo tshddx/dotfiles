@@ -1,0 +1,22 @@
+# key: rnc
+# --
+import React from "react";
+import PropTypes from "prop-types";
+
+export const $1 = ({ foo, bar }) => {
+  return (
+    $0
+  );
+};
+
+$1.propTypes = {
+  foo: PropTypes.bool.isRequired,
+  bar: PropTypes.func
+};
+
+$1.defaultProps = {
+  foo: true,
+  bar: x => x
+};
+
+export default $1;

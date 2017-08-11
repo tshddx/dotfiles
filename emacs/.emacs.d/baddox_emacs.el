@@ -389,4 +389,8 @@
   (define-key rjsx-mode-map (kbd "C-d") nil))
 
 (require 'prettier-js)
-;(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+(add-hook 'rjsx-mode-hook 'prettier-js-mode)
+
+(setq prettier-js-args '(
+  "--trailing-comma" "all"
+))

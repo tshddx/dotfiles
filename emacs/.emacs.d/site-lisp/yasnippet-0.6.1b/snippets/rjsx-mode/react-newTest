@@ -1,0 +1,13 @@
+# key: rnt
+# --
+import React from "react";
+import renderer from "react-test-renderer";
+import { $1 } from "./$1";
+
+describe("$1", () => {
+  it("renders correctly", () => {
+    const props = { $0 };
+    const component = renderer.create(<$1 {...props} />);
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
