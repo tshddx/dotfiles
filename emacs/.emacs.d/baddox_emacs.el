@@ -28,9 +28,6 @@
 (global-linum-mode)
 
 (when (eq system-type 'darwin) ;; mac specific settings
-  ;; default font
-;;  (set-face-attribute 'default nil :font "Andale Mono")
-  (set-default-font "Andale Mono")
   ;; key bindings
   (setq mac-option-modifier 'alt)
   (setq mac-command-modifier 'control)
@@ -170,6 +167,12 @@
 ;; New enhanced Ruby mode magic!
 (add-to-list 'auto-mode-alist
              '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+
+
+(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
+
+;; Because system ruby is old and doesn't like some syntax like named keyword args.
+(setq enh-ruby-program "/Users/thomas/.rbenv/shims/ruby")
 
 ;; http://peter.peca.dk/art_Emacs_Ruby_Mode.html
 ;; Indent when pressing Enter in Ruby-Mode
