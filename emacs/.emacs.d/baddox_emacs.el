@@ -36,7 +36,41 @@
   (setq mac-command-modifier 'control)
   (setq mac-control-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char) ;; sets fn-delete to be right-delete
-          )
+  )
+
+;; https://github.com/tonsky/FiraCode/wiki/Setting-up-Emacs
+(when (window-system)
+  (set-default-font "Fira Code"))
+(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+               (36 . ".\\(?:>\\)")
+               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+               (48 . ".\\(?:x[a-zA-Z]\\)")
+               (58 . ".\\(?:::\\|[:=]\\)")
+               (59 . ".\\(?:;;\\|;\\)")
+               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+               (91 . ".\\(?:]\\)")
+               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+               (94 . ".\\(?:=\\)")
+               (119 . ".\\(?:ww\\)")
+               (123 . ".\\(?:-\\)")
+               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+               )
+             ))
+  (dolist (char-regexp alist)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
 
 (require 'package)
 (add-to-list 'package-archives
@@ -133,10 +167,14 @@
 ; from http://www-cs-students.stanford.edu/~manku/dotemacs.html
 (global-set-key "\C-m" 'newline-and-indent)
 
+;; New enhanced Ruby mode magic!
+(add-to-list 'auto-mode-alist
+             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+
 ;; http://peter.peca.dk/art_Emacs_Ruby_Mode.html
 ;; Indent when pressing Enter in Ruby-Mode
-(add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
-(setq ruby-deep-indent-paren nil)
+;; (add-hook 'ruby-mode-hook (lambda () (local-set-key "\r" 'newline-and-indent)))
+;; (setq ruby-deep-indent-paren nil)
 
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key (kbd "C-l") 'kill-whole-line)
@@ -269,8 +307,8 @@
 ;;
 
 ;; https://github.com/ajvargo/ruby-refactor
-(require 'ruby-refactor)
-(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+;; (require 'ruby-refactor)
+;; (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
 
 ;; https://github.com/nschum/highlight-symbol.el
 (require 'highlight-symbol)
@@ -342,7 +380,7 @@
     '(ruby)))
 
 ;; use rubocop with ruby-mode for ruby files
-(flycheck-add-mode 'ruby-rubocop 'ruby-mode)
+;; (flycheck-add-mode 'ruby-rubocop 'ruby-mode)
 
 (global-set-key (kbd "A-n") 'flycheck-next-error)
 (global-set-key (kbd "A-p") 'flycheck-previous-error)
@@ -365,16 +403,16 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; From https://coderwall.com/p/u-l0ra/ruby-code-folding-in-emacs
-(add-hook 'ruby-mode-hook
-  (lambda () (hs-minor-mode)))
+;; (add-hook 'ruby-mode-hook
+;;   (lambda () (hs-minor-mode)))
 
-(eval-after-load "hideshow"
-  '(add-to-list 'hs-special-modes-alist
-    `(ruby-mode
-      ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
-      ,(rx (or "}" "]" "end"))                       ; Block end
-      ,(rx (or "#" "=begin"))                        ; Comment start
-      ruby-forward-sexp nil)))
+;; (eval-after-load "hideshow"
+;;   '(add-to-list 'hs-special-modes-alist
+;;     `(ruby-mode
+;;       ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+;;       ,(rx (or "}" "]" "end"))                       ; Block end
+;;       ,(rx (or "#" "=begin"))                        ; Comment start
+;;       ruby-forward-sexp nil)))
 
 (global-set-key (kbd "C-c h") 'hs-hide-block)
 (global-set-key (kbd "C-c s") 'hs-show-block)
