@@ -22,12 +22,20 @@
  '(custom-enabled-themes (quote (tangotango)))
  '(custom-safe-themes
    (quote
-    ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
+    ("cdfc5c44f19211cfff5994221078d7d5549eeb9feda4f595a2fd8ca40467776c" "5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "36a309985a0f9ed1a0c3a69625802f87dee940767c9e200b89cdebdb737e5b29" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
  '(desktop-path (quote ("~/.emacs.d/" "~")))
  '(display-time-day-and-date t)
  '(display-time-mode t)
+ '(enh-ruby-add-encoding-comment-on-save nil)
  '(enh-ruby-deep-indent-construct nil)
  '(enh-ruby-deep-indent-paren nil)
+ '(enh-ruby-encoding-map
+   (quote
+    ((us-ascii)
+     (utf-8)
+     (shift-jis . cp932)
+     (shift_jis . cp932)
+     (japanese-cp932 . cp932))))
  '(exec-path
    (quote
     ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
@@ -43,7 +51,9 @@
  '(mumamo-chunk-coloring 1)
  '(package-selected-packages
    (quote
-    (enh-ruby-mode less-css-mode rjsx-mode ag helm helm-ag haml-mode tangotango-theme web-mode s projectile highlight-symbol flycheck flx-ido)))
+    (zenburn-theme ruby-block enh-ruby-mode less-css-mode rjsx-mode ag helm helm-ag haml-mode tangotango-theme web-mode s projectile highlight-symbol flycheck flx-ido)))
+ '(ruby-block-highlight-face (quote show-paren-match))
+ '(ruby-block-highlight-toggle (quote overlay))
  '(ruby-insert-encoding-magic-comment nil)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scroll-step 16)
@@ -53,6 +63,7 @@
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
  '(tabkey2-mode nil)
  '(tool-bar-mode nil)
+ '(tooltip-delay 0.4)
  '(web-mode-comment-style 2)
  '(yas-global-mode t))
 ;; (custom-set-faces
@@ -70,5 +81,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(enh-ruby-op-face ((t (:foreground "#729fcf"))))
+ '(erm-syn-errline ((t (:background "#700101"))))
+ '(erm-syn-warnline ((t (:background "#504b20"))))
  '(highlight-symbol-face ((t (:background "gray30")))))
 (put 'downcase-region 'disabled nil)

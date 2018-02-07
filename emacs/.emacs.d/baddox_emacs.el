@@ -173,6 +173,7 @@
 
 ;; Because system ruby is old and doesn't like some syntax like named keyword args.
 (setq enh-ruby-program "/Users/thomas/.rbenv/shims/ruby")
+(setq ruby-block-highlight-toggle 'overlay)
 
 ;; http://peter.peca.dk/art_Emacs_Ruby_Mode.html
 ;; Indent when pressing Enter in Ruby-Mode
@@ -333,7 +334,7 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (define-key projectile-mode-map (kbd "C-x C-f") 'projectile-find-file)
-(global-set-key (kbd "A-x A-f") 'ido-find-file)
+(global-set-key (kbd "A-f") 'ido-find-file)
 
 (ido-mode 1)
 (ido-everywhere 1)
@@ -431,6 +432,7 @@
 
 (require 'prettier-js)
 (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+(add-hook 'less-css-mode-hook 'prettier-js-mode)
 
 (setq prettier-js-args '(
   "--trailing-comma" "all"
